@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: eclectics-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: eclectics-app
+
+  template:
+    metadata:
+      labels:
+        app: eclectics-app
+
+    spec:
+      containers:
+        - name: eclectics-app
+          image: nginx:alpine
+
+          ports:
+            - containerPort: 80
